@@ -6,9 +6,10 @@ class Show extends React.Component {
     console.log(pokemon);
     return (
       <div>
-        <h1>Pokemon</h1>
-      <p>{pokemon.name}</p>
-      <img src= {pokemon.img + ".jpg"}/>
+        <h1>Gotta Catche 'Em All</h1>
+        <h2>{pokemon.name}</h2>
+        <img src={pokemon.img + ".jpg"} />
+        <a href="http://localhost:3000/pokemon">Back</a>
       </div>
     );
   }
