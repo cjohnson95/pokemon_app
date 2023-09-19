@@ -9,12 +9,12 @@ class Index extends React.Component {
     const { pokemon } = this.props;
     return (
       <div style={myStyle}>
-        <h1>See All the Pokemon!!</h1>
+        <h1>Gotta catch'em all!!</h1>
         <ul>
           {pokemon.map((pokemon, i) => {
             return (
               <li>
-                <a href={`/pokemon/${i}`}>{pokemon.name}
+                <a href={`/pokemon/${i}`}>
                   {capitalizeFirstLetter(pokemon.name)}
                 </a>
               </li>
@@ -27,6 +27,6 @@ class Index extends React.Component {
 }
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase();
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 module.exports = Index;
