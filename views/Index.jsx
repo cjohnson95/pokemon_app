@@ -2,7 +2,7 @@ const React = require("react");
 
 const myStyle = {
   color: "#ffffff",
-  backgroundColor: "#000000",
+  backgroundColor: "#BDC696",
 };
 class Index extends React.Component {
   render() {
@@ -21,6 +21,7 @@ class Index extends React.Component {
             );
           })}
         </ul>
+        <a href="http://localhost:3000/pokemon/New">Add Pokemon</a>
       </div>
     );
   }
