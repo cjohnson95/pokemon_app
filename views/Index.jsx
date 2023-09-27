@@ -1,4 +1,5 @@
 const React = require("react");
+const DefaultLayout = require("./layouts/Default");
 
 const myStyle = {
   color: "#ffffff",
@@ -6,22 +7,33 @@ const myStyle = {
 };
 class Index extends React.Component {
   render() {
-    const { pokemon } = this.props;
+    const pokemon = this.props.pokemon;
+    console.log({props: this.props.pokemon})
     return (
       <div style={myStyle}>
-        <h1>Gotta catch'em all!!</h1>
-        <ul>
-          {pokemon.map((pokemon, i) => {
-            return (
-              <li>
-                <a href={`/pokemon/${i}`}>
-                  {capitalizeFirstLetter(pokemon.name)}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <a href="http://localhost:3000/pokemon/New">Add Pokemon</a>
+        <DefaultLayout title={"Pokemon Index Page"}>
+          <nav>
+            <a href="/pokemon/new">Add a New Pokemon</a>
+          </nav>
+          <h1>Gotta catch'em all!!</h1>
+          <ul>
+            {this.pokemon.map((pokemon, i) => {
+              return (
+                <li key={i}>
+                  <a href={`/pokemon/${pokemon.id}`}>
+                    {pokemon.name}
+                    {capitalizeFirstLetter(pokemon.name)}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <a href="http://localhost:3000/pokemon/New">Add Pokemon</a>
+          <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+            <input type="submit" value="DELETE" />
+          </form>
+          <a href={`/pokemon/${pokemon._id}/edit`}>Edit this Pokemon</a>
+        </DefaultLayout>
       </div>
     );
   }

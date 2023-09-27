@@ -11,6 +11,11 @@ class New extends React.Component {
           <br />
           <input type="submit" name="" value="Add Pokemon" />
         </form>
+        <form action="/pokemon" method="POST">
+          Img: <input type="text" img="img" />
+          <br />
+          <input type="submit" img="" value="Add Pokemon Image" />
+        </form>
       </div>
     );
   }
